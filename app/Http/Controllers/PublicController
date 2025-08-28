@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Commodity;
+use App\Models\Machinery;
+use App\Models\Equipment;
+
+class PublicController extends Controller
+{
+    public function dashboard()
+    {
+        $commodities = Commodity::all();
+        $machineries = Machinery::all();
+        $equipments = Equipment::all();
+
+        return view('public.dashboard', compact('commodities', 'machineries', 'equipments'));
+    }
+}
